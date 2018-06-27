@@ -1,0 +1,6 @@
+C:\NET projects\DiffsBuilder\DiffsBuilder\SimpleProj\bin\Debug\SimpleProj.exe.config
+C:\NET projects\DiffsBuilder\DiffsBuilder\SimpleProj\bin\Debug\SimpleProj.exe
+C:\NET projects\DiffsBuilder\DiffsBuilder\SimpleProj\bin\Debug\SimpleProj.pdb
+C:\NET projects\DiffsBuilder\DiffsBuilder\SimpleProj\obj\Debug\SimpleProj.csproj.CoreCompileInputs.cache
+C:\NET projects\DiffsBuilder\DiffsBuilder\SimpleProj\obj\Debug\SimpleProj.exe
+C:\NET projects\DiffsBuilder\DiffsBuilder\SimpleProj\obj\Debug\SimpleProj.pdb

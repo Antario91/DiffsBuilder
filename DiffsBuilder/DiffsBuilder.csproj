@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{161F4664-8642-4A5B-B3A0-3C0BAF28D1C9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DiffsBuilder</RootNamespace>
+    <AssemblyName>DiffsBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JsonDiffPatchDotNet, Version=2.1.0.0, Culture=neutral, PublicKeyToken=a407b9994a6d66d5, processorArchitecture=MSIL">
+      <HintPath>..\packages\JsonDiffPatch.Net.2.1.0\lib\net45\JsonDiffPatchDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="KellermanSoftware.Compare-NET-Objects, Version=4.53.0.0, Culture=neutral, PublicKeyToken=d970ace04cc85217, processorArchitecture=MSIL">
+      <HintPath>..\packages\CompareNETObjects.4.53.0.0\lib\net46\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomExpandoObjectComparer.cs" />
+    <Compile Include="CustomListComparer.cs" />
+    <Compile Include="Diffs.cs" />
+    <Compile Include="DiffsBuilder.cs" />
+    <Compile Include="ExpandoObjectComparer.cs" />
+    <Compile Include="FirstNullClassComparer.cs" />
+    <Compile Include="NullToObjectComparer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pupil.cs" />
+    <Compile Include="PupilsCount.cs" />
+    <Compile Include="ReadOnlySchool.cs" />
+    <Compile Include="School.cs" />
+    <Compile Include="SchoolFlowComparer.cs" />
+    <Compile Include="SchoolFlowJSON.cs" />
+    <Compile Include="Table.cs" />
+    <Compile Include="Test3.cs" />
+    <Compile Include="TestAudit1.cs" />
+    <Compile Include="TestAudit2.cs" />
+    <Compile Include="TypeExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Compare-NET-Objects-Help.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

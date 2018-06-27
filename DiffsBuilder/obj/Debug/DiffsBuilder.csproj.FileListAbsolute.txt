@@ -1,0 +1,13 @@
+C:\NET projects\DiffsBuilder\DiffsBuilder\DiffsBuilder\bin\Debug\DiffsBuilder.exe.config
+C:\NET projects\DiffsBuilder\DiffsBuilder\DiffsBuilder\bin\Debug\DiffsBuilder.exe
+C:\NET projects\DiffsBuilder\DiffsBuilder\DiffsBuilder\bin\Debug\DiffsBuilder.pdb
+C:\NET projects\DiffsBuilder\DiffsBuilder\DiffsBuilder\bin\Debug\KellermanSoftware.Compare-NET-Objects.dll
+C:\NET projects\DiffsBuilder\DiffsBuilder\DiffsBuilder\bin\Debug\KellermanSoftware.Compare-NET-Objects.xml
+C:\NET projects\DiffsBuilder\DiffsBuilder\DiffsBuilder\obj\Debug\DiffsBuilder.csprojAssemblyReference.cache
+C:\NET projects\DiffsBuilder\DiffsBuilder\DiffsBuilder\obj\Debug\DiffsBuilder.csproj.CoreCompileInputs.cache
+C:\NET projects\DiffsBuilder\DiffsBuilder\DiffsBuilder\obj\Debug\DiffsBuilder.csproj.CopyComplete
+C:\NET projects\DiffsBuilder\DiffsBuilder\DiffsBuilder\obj\Debug\DiffsBuilder.exe
+C:\NET projects\DiffsBuilder\DiffsBuilder\DiffsBuilder\obj\Debug\DiffsBuilder.pdb
+C:\NET projects\DiffsBuilder\DiffsBuilder\DiffsBuilder\bin\Debug\JsonDiffPatchDotNet.dll
+C:\NET projects\DiffsBuilder\DiffsBuilder\DiffsBuilder\bin\Debug\Newtonsoft.Json.dll
+C:\NET projects\DiffsBuilder\DiffsBuilder\DiffsBuilder\bin\Debug\Newtonsoft.Json.xml
