@@ -70,6 +70,8 @@
     <Compile Include="Test3.cs" />
     <Compile Include="TestAudit1.cs" />
     <Compile Include="TestAudit2.cs" />
+    <Compile Include="TypeComparers\ComparisonResultWrapper.cs" />
+    <Compile Include="TypeComparers\CustomPropertyComparer.cs" />
     <Compile Include="TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>

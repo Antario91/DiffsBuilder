@@ -11,22 +11,19 @@ namespace DiffsBuilder
     public class CustomExpandoObjectComparer : BaseTypeComparer
     {
 
-        private readonly PropertyComparer propertyComparer;
+        private readonly CustomPropertyComparer propertyComparer;
         private readonly FieldComparer fieldComparer;
 
         public CustomExpandoObjectComparer(RootComparer rootComparer) : base(rootComparer)
         {
-            propertyComparer = new PropertyComparer(rootComparer);
+            propertyComparer = new CustomPropertyComparer(rootComparer);
             fieldComparer = new FieldComparer(rootComparer);
         }
 
         public override void CompareType(CompareParms parms)
         {
-            if (parms.Object1 == null || parms.Object2 == null)
-                return;
-
-            parms.Object1Type = parms.Object1.GetType();
-            parms.Object2Type = parms.Object2.GetType();
+            parms.Object1Type = parms.Object1?.GetType();
+            parms.Object2Type = parms.Object2?.GetType();
             
             IDictionary<string, object> object1Properties = (IDictionary<string, object>)parms.Object1;
             IDictionary<string, object> object2Properties = (IDictionary<string, object>)parms.Object2;
@@ -62,7 +59,9 @@ namespace DiffsBuilder
 
         public override bool IsTypeMatch(Type type1, Type type2)
         {
-            return typeof(ExpandoObject).IsAssignableFrom(type1) && typeof(ExpandoObject).IsAssignableFrom(type2);
+            return typeof(ExpandoObject).IsAssignableFrom(type1) && type2 == null
+                || typeof(ExpandoObject).IsAssignableFrom(type2) && type1 == null
+                || typeof(ExpandoObject).IsAssignableFrom(type1) && typeof(ExpandoObject).IsAssignableFrom(type2);
         }
     }
 

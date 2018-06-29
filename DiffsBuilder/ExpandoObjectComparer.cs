@@ -12,12 +12,12 @@ namespace Scc.Portal.Orchard.AuditTrails
 {
     public class ExpandoObjectComparer : BaseTypeComparer
     {
-        private readonly PropertyComparer propertyComparer;
+        private readonly CustomPropertyComparer propertyComparer;
         private readonly FieldComparer fieldComparer;
 
         public ExpandoObjectComparer(RootComparer rootComparer) : base(rootComparer)
         {
-            propertyComparer = new PropertyComparer(rootComparer);
+            propertyComparer = new CustomPropertyComparer(rootComparer);
             fieldComparer = new FieldComparer(rootComparer);
         }
 

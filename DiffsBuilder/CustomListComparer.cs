@@ -13,7 +13,7 @@ namespace KellermanSoftware.CompareNetObjects.TypeComparers
     {
         private const string iReadOnlyList = "IReadOnlyList";
 
-        private readonly PropertyComparer _propertyComparer;
+        private readonly CustomPropertyComparer _propertyComparer;
         private readonly FieldComparer _fieldComparer;
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace KellermanSoftware.CompareNetObjects.TypeComparers
         /// <param name="rootComparer"></param>
         public CustomListComparer(RootComparer rootComparer) : base(rootComparer)
         {
-            _propertyComparer = new PropertyComparer(rootComparer);
+            _propertyComparer = new CustomPropertyComparer(rootComparer);
             _fieldComparer = new FieldComparer(rootComparer);
         }
 
