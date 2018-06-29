@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection;
 using KellermanSoftware.CompareNetObjects.IgnoreOrderTypes;
@@ -27,7 +28,9 @@ namespace KellermanSoftware.CompareNetObjects.TypeComparers
         /// <returns></returns>
         public override bool IsTypeMatch(Type type1, Type type2)
         {
-            return TypeHelper.IsHashSet(type1) && TypeHelper.IsHashSet(type2);
+            return TypeHelper.IsHashSet(type1) && TypeHelper.IsHashSet(type2)
+                || TypeHelper.IsHashSet(type1) && type2 == null
+                || TypeHelper.IsHashSet(type2) && type1 == null;
         }
 
         /// <summary>
@@ -35,53 +38,61 @@ namespace KellermanSoftware.CompareNetObjects.TypeComparers
         /// </summary>
         public override void CompareType(CompareParms parms)
         {
-            try
-            {
+            //try
+           // {
+                /*
                 parms.Result.AddParent(parms.Object1.GetHashCode());
                 parms.Result.AddParent(parms.Object2.GetHashCode());
+                */
+                
+                parms.Object1Type = parms.Object1?.GetType();
+            
+                parms.Object2Type = parms.Object2?.GetType();
 
-                Type t1 = parms.Object1.GetType();
-                parms.Object1Type = t1;
-
-                Type t2 = parms.Object2.GetType();
-                parms.Object2Type = t2;
-
-                bool countsDifferent = HashSetsDifferentCount(parms);
+                //bool countsDifferent = HashSetsDifferentCount(parms);
 
                 if (parms.Result.ExceededDifferences)
                     return;
 
-                if (parms.Config.IgnoreCollectionOrder)
-                {
-                    IgnoreOrderLogic logic = new IgnoreOrderLogic(RootComparer);
-                    logic.CompareEnumeratorIgnoreOrder(parms, countsDifferent);
-                }
-                else
-                {
+                //if (parms.Config.IgnoreCollectionOrder)
+                //{
+                //    IgnoreOrderLogic logic = new IgnoreOrderLogic(RootComparer);
+                //    logic.CompareEnumeratorIgnoreOrder(parms, countsDifferent);
+                //}
+                //else
+                //{
                     CompareItems(parms);
-                }
-            }
-            finally
+                //}
+         //   }
+          /*  finally
             {
                 parms.Result.RemoveParent(parms.Object1.GetHashCode());
                 parms.Result.RemoveParent(parms.Object2.GetHashCode());
-            }
+            }*/
         }
 
         private void CompareItems(CompareParms parms)
         {
-            int count = 0;
+          //  int count = 0;
 
             //Get enumerators by reflection
-            MethodInfo method1Info = Cache.GetMethod(parms.Object1Type, "GetEnumerator");
-            IEnumerator enumerator1 = (IEnumerator)method1Info.Invoke(parms.Object1, null);
+            //MethodInfo method1Info = Cache.GetMethod(parms.Object1Type, "GetEnumerator");
+            //IEnumerator enumerator1 = (IEnumerator)method1Info.Invoke(parms.Object1, null);
 
-            MethodInfo method2Info = Cache.GetMethod(parms.Object2Type, "GetEnumerator");
+            //MethodInfo method2Info = Cache.GetMethod(parms.Object2Type, "GetEnumerator");
+            //IEnumerator enumerator2 = (IEnumerator) method2Info.Invoke(parms.Object2, null);
+
+            if (parms.Object1 != null && parms.Object2 != null)
+            {
+                
+            }
+
+            IEnumerator enumerator1 = (IEnumerator) method1Info.Invoke(parms.Object1, null);
             IEnumerator enumerator2 = (IEnumerator) method2Info.Invoke(parms.Object2, null);
 
             while (enumerator1.MoveNext() && enumerator2.MoveNext())
             {
-                string currentBreadCrumb = AddBreadCrumb(parms.Config, parms.BreadCrumb, string.Empty, string.Empty, count);
+                string currentBreadCrumb = AddBreadCrumb(parms.Config, parms.BreadCrumb, string.Empty, string.Empty/*, count*/);
 
                 CompareParms childParms = new CompareParms
                 {
@@ -99,7 +110,7 @@ namespace KellermanSoftware.CompareNetObjects.TypeComparers
                 if (parms.Result.ExceededDifferences)
                     return;
 
-                count++;
+                //count++;
             }
         }
 

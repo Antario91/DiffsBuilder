@@ -72,6 +72,7 @@
     <Compile Include="TestAudit2.cs" />
     <Compile Include="TypeComparers\ComparisonResultWrapper.cs" />
     <Compile Include="TypeComparers\CustomPropertyComparer.cs" />
+    <Compile Include="TypeComparers\CustomHashSetComparer.cs" />
     <Compile Include="TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
